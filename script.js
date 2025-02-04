@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(buttonText == 'Most Common Genre'){
                 createGenreChart();
+                console.log("Clicked!")
             }
             else if(buttonText == 'Year Song Released'){
                 createYearChart();
@@ -25,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const genreCounts = {};
 
         for(const song of songList){
-            const genre = song.genre.split(',').map(g => g.trim());
-        }
+            const genres = song.genre.split(',').map(g => g.trim());
+        
 
-        for(const genre of genres){
+            for(const genre of genres){
             genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            }
         }
-    
 
         const labels = Object.keys(genreCounts);
         const data = Object.values(genreCounts);
@@ -62,6 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         })
-     } 
+    } 
 
 })
